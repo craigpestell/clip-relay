@@ -1,0 +1,9 @@
+{
+  "Simulator Target Bundle": "com.example.clipspike",
+  "aps": {
+    "alert": { "title": "Text from your computer", "body": "clip-relay simulated push D" },
+    "category": "CLIP_EXT",
+    "sound": "default"
+  },
+  "text": "clip-relay simulated push D"
+}
