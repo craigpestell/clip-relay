@@ -44,7 +44,7 @@ Entry in the founder's client-hub (Projects). Skill: `project-dashboard`.
 ## Rules every role keeps
 
 - **Clipboard text is private.** People copy passwords, codes and addresses. Any design must keep the text unreadable to the relay server (end-to-end encrypted) and must not log or store it after delivery.
-- **No code before the decision.** Until `docs/decisions/0001-viability.md` says go and the founder agrees, work stays in research, specs and design.
+- **No product code before the decision.** The founder approved a feasibility spike on 2026-11-10. Throwaway spike code lives in `spikes/` and is never shipped. Product code waits until `docs/decisions/0001-viability.md` says go after the spike and the founder agrees.
 - **Cite sources with the date checked** for every market, competitor or platform claim. Platform rules (especially iOS clipboard and notification limits) change; check them on the web, not from memory.
 
 ## Deploy gate

@@ -1,0 +1,63 @@
+# XcodeGen spec. Generate the Xcode project with:  xcodegen generate
+name: ClipSpike
+options:
+  deploymentTarget:
+    iOS: "18.0"
+settings:
+  base:
+    BASE_BUNDLE_ID: com.example.clipspike   # change to something unique for a real device
+    DEVELOPMENT_TEAM: ""                    # your team ID; a free personal team works
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "0.1"
+    CURRENT_PROJECT_VERSION: "1"
+    GENERATE_INFOPLIST_FILE: NO
+targets:
+  ClipSpike:
+    type: application
+    platform: iOS
+    sources: [App]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(BASE_BUNDLE_ID)
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: ClipSpike
+        UILaunchScreen: {}
+        UIApplicationSupportsIndirectInputEvents: true
+    dependencies:
+      - target: ClipSpikeNotificationContent
+      - target: ClipSpikeControls
+  ClipSpikeNotificationContent:
+    type: app-extension
+    platform: iOS
+    sources: [NotificationContent]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(BASE_BUNDLE_ID).content
+    info:
+      path: NotificationContent/Info.plist
+      properties:
+        CFBundleDisplayName: ClipSpike Notification
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.usernotifications.content-extension
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).NotificationViewController
+          NSExtensionAttributes:
+            UNNotificationExtensionCategory: CLIP_EXT
+            UNNotificationExtensionInitialContentSizeRatio: 0.5
+            UNNotificationExtensionUserInteractionEnabled: true
+            UNNotificationExtensionDefaultContentHidden: false
+  ClipSpikeControls:
+    type: app-extension
+    platform: iOS
+    sources: [Controls]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(BASE_BUNDLE_ID).controls
+    info:
+      path: Controls/Info.plist
+      properties:
+        CFBundleDisplayName: ClipSpike Controls
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
