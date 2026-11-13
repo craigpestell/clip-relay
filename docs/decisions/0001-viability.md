@@ -27,6 +27,12 @@ The demand is real, and the best gap is iPhone users with a non-Mac computer. Th
 
 **Cost** (`finance-lead`, est.; prices from memory, check before paying): Apple Developer Program about $99/yr, Google Play about $25 once, Chrome Web Store about $5 once. Pushes go through APNs and FCM at no charge. A small relay fits a free serverless tier at launch scale. The main cost is build time.
 
+## Spike results so far (2026-11-13)
+
+- **iPhone Simulator** (iOS 27.3): all five variants wrote to the clipboard. The best result is **variant A**: two taps (long-press the notification, tap Copy) with the app staying closed. It worked even after the app was force-quit, because iOS launched it in the background to run the copy. Variant D, a Copy button in the expanded notification, also works without opening the app. See [spikes/ios](../../spikes/ios/README.md).
+- **Still needed:** a real iPhone with a real push, because the Simulator skips the device's clipboard restrictions. Also the Android test on the founder's phone.
+- **Reading:** if a real iPhone matches, the main technical risk is gone and the iPhone experience is two taps with no app switch.
+
 ## Proposed adoption target
 
 **1,000 weekly active users within 3 months of a public launch, and 5,000 within 6 months.** Weekly active means at least one text sent in the week. Below 300 at 3 months, stop or pivot. This is a proposal; the founder sets the real number.

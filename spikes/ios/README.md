@@ -43,11 +43,12 @@ open ClipSpike.xcodeproj
 
 | Variant | Simulator (iOS ver) | iPhone (model, iOS ver) | Paste in Notes works? | Taps | Notes |
 |---|---|---|---|---|---|
-| A, app in background | | | | | |
-| A, app force-quit | | | | | |
-| B | | | | | |
-| C | | | | | |
-| D | | | | | |
-| E | | | | | |
+| A, app in background | OK (iOS 27.3 sim, iPhone 18 Pro) | | Yes | 2 (long-press, Copy) | App stays in background |
+| A, app force-quit | OK | | Yes | 2 | iOS launched the app in the background to copy |
+| B | OK | | Yes | 2 | App comes to the front |
+| C | OK | | Yes | 1 | App opens |
+| D | OK, after linking UserNotificationsUI (#6) | | Yes | 2 (expand, Copy) | App doesn't open |
+| E | OK | | Yes | 1 from Control Center | Copies a fixed string; control must be added once |
 
+Simulator run 2026-11-13, Xcode-beta 27.3 (27C5020n). The Simulator applies none of a real iPhone's paste prompts or restrictions, so this only shows the code works.
 The Simulator is only a first signal. The verdict needs at least one real iPhone.
