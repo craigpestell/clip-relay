@@ -33,6 +33,8 @@ targets:
     type: app-extension
     platform: iOS
     sources: [NotificationContent]
+    dependencies:
+      - sdk: UserNotificationsUI.framework
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: $(BASE_BUNDLE_ID).content
